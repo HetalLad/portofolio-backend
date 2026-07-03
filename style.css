@@ -60,16 +60,17 @@ button{font-family:inherit}
 .title-sub{opacity:.7}
 .resume-btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-size:11.5px;font-weight:800;color:var(--bg);background:var(--yellow);padding:6px 13px}
 
-.tab-strip{height:38px;display:flex;align-items:flex-end;padding:0 8px;gap:2px;border-top:1px solid var(--border);overflow-x:auto}
-.tab-btn{display:flex;align-items:center;gap:7px;cursor:pointer;border:none;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;background:transparent;color:var(--text-faint);border-top:2px solid transparent;font-weight:400;white-space:nowrap}
-.tab-btn.active{background:var(--bg);color:var(--text);border-top:2px solid var(--yellow);font-weight:700}
+.tab-strip{height:38px;display:flex;align-items:flex-end;padding:0 8px;gap:2px;border-top:1px solid var(--border);overflow-x:auto;position:relative}
+.tab-indicator{position:absolute;top:0;bottom:0;left:0;width:0;background:var(--bg);border-top:2px solid var(--yellow);pointer-events:none;z-index:0;will-change:transform,width}
+.tab-btn{position:relative;z-index:1;display:flex;align-items:center;gap:7px;cursor:pointer;border:none;padding:8px 14px;font-family:'JetBrains Mono',monospace;font-size:12px;background:transparent;color:var(--text-faint);border-top:2px solid transparent;font-weight:400;white-space:nowrap;transition:color .2s ease,font-weight .2s ease}
+.tab-btn.active{background:transparent;color:var(--text);border-top-color:transparent;font-weight:700}
 .tab-dot{width:8px;height:8px;border-radius:2px;display:inline-block;opacity:.55}
 .tab-btn.active .tab-dot{opacity:1}
 .tab-spacer{flex:1}
 .branch-label{display:flex;align-items:center;gap:6px;padding:0 10px 6px;font-size:10.5px;color:var(--text-faintest);white-space:nowrap}
 
 .progress-track{height:2px;background:var(--border)}
-.progress-bar{height:100%;width:0;background:var(--yellow)}
+.progress-bar{height:100%;width:0;background:var(--yellow);transition:width .08s linear}
 
 /* ============ activity bar ============ */
 .activity-bar{position:fixed;left:0;top:var(--header-h);bottom:28px;width:var(--bar-w);z-index:40;background:var(--bg-soft);border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:12px 0}
@@ -98,7 +99,8 @@ h1.headline{font-weight:800;font-size:clamp(42px,5.6vw,76px);line-height:1.05;le
 .status-top{display:flex;align-items:center;gap:8px}
 .status-dot{width:8px;height:8px;border-radius:2px;background:var(--green);animation:pulse 2s infinite}
 .status-label{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--green)}
-.status-body{margin-top:9px;font-size:14px;line-height:1.6;color:var(--text)}
+.status-body{margin-top:9px;font-size:14px;line-height:1.6;color:var(--text);display:flex;flex-direction:column;gap:4px}
+.status-line{display:block}
 
 .cta-row{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
 .btn-primary,.btn-secondary{display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;font-weight:800;font-size:14px;padding:15px 24px;transition:transform .15s,border-color .15s;text-decoration:none}

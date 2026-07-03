@@ -180,10 +180,13 @@
   /* ============ scroll spy + progress + smooth scroll ============ */
   const sectionIds = ['home','projects','experience','life','contact'];
   const sectionLabels = {home:'home.tsx', projects:'projects.tsx', experience:'experience.log', life:'life.md', contact:'contact.json'};
-  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabStrip = document.getElementById('tabStrip');
+  const tabIndicator = document.getElementById('tabIndicator');
+  const tabBtns = [...document.querySelectorAll('.tab-btn')];
   const navIcons = document.querySelectorAll('.nav-icon');
   const progressBar = document.getElementById('progressBar');
   const statusSection = document.getElementById('statusSection');
+  const headerOffset = 160;
 
   function scrollToId(id){
     const el = document.getElementById(id);
@@ -192,6 +195,46 @@
   document.querySelectorAll('[data-target]').forEach(el => {
     el.addEventListener('click', () => scrollToId(el.dataset.target));
   });
+
+  function sectionOffsets(){
+    return sectionIds.map(id => {
+      const el = document.getElementById(id);
+      return el ? el.offsetTop : 0;
+    });
+  }
+
+  function scrollSectionProgress(){
+    const offsets = sectionOffsets();
+    const scrollY = window.scrollY + headerOffset;
+    const last = offsets.length - 1;
+
+    if (scrollY <= offsets[0]) return { from: 0, to: 0, t: 0 };
+    if (scrollY >= offsets[last]) return { from: last, to: last, t: 0 };
+
+    for (let i = 0; i < last; i++){
+      if (scrollY >= offsets[i] && scrollY < offsets[i + 1]){
+        const span = offsets[i + 1] - offsets[i];
+        const t = span > 0 ? (scrollY - offsets[i]) / span : 0;
+        return { from: i, to: i + 1, t: Math.min(1, Math.max(0, t)) };
+      }
+    }
+    return { from: 0, to: 0, t: 0 };
+  }
+
+  function moveTabIndicator(fromIdx, toIdx, t){
+    const from = tabBtns[fromIdx];
+    const to = tabBtns[toIdx];
+    if (!from || !to || !tabIndicator) return;
+
+    const stripLeft = tabStrip.getBoundingClientRect().left;
+    const fromRect = from.getBoundingClientRect();
+    const toRect = to.getBoundingClientRect();
+    const left = (fromRect.left - stripLeft) + (toRect.left - fromRect.left) * t;
+    const width = fromRect.width + (toRect.width - fromRect.width) * t;
+
+    tabIndicator.style.transform = `translateX(${left}px)`;
+    tabIndicator.style.width = `${width}px`;
+  }
 
   function setActiveSection(id){
     tabBtns.forEach(b => b.classList.toggle('active', b.dataset.target === id));
@@ -206,12 +249,11 @@
     const p = max > 0 ? st / max : 0;
     progressBar.style.width = (Math.min(1, Math.max(0, p)) * 100) + '%';
 
-    let current = sectionIds[0];
-    for (const id of sectionIds){
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 160) current = id;
-    }
-    setActiveSection(current);
+    const { from, to, t } = scrollSectionProgress();
+    moveTabIndicator(from, to, reduceMotion ? 0 : t);
+
+    const activeIdx = t > 0.5 ? to : from;
+    setActiveSection(sectionIds[activeIdx]);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll, { passive: true });
