@@ -3,11 +3,11 @@
 
   /* ============ project data ============ */
   const projects = [
-    {tag:'DEVOPS · AI', title:'DevOps Copilot', desc:"Full-stack AI tool that ingests system logs and returns structured root-cause analysis via real-time streaming. Hit a critical async session bug mid-build — SQLAlchemy sessions can't stay open across a 10-30s stream — traced it and restructured the architecture around it.", tags:['FastAPI','Next.js','TypeScript','llama.cpp','SSE','JWT'], link:'https://github.com/HetalLad/devops-copilot'},
-    {tag:'RAG SYSTEM · HEALTHCARE · AI', title:'Cardiology RAG Assistant', desc:'RAG pipeline over 529 pages of AHA clinical guidelines — chunked, embedded, indexed in Pinecone, served via GPT-3.5 with citations. Stress-tested until three production failure modes surfaced, then fixed all three.', tags:['Python','LangChain','Pinecone','GPT-3.5'], link:'https://github.com/HetalLad/cardio-rag'},
-    {tag:'DISTRIBUTED SYSTEMS · GO · LLM', title:'GoLlama', desc:'Distributed backend orchestrating concurrent LLM inference across nodes with goroutine worker pools and channel-driven concurrency — 50% throughput improvement over single-node baseline.', tags:['Go','Goroutines','REST API','CLI'], link:'https://github.com/AntonisKotsikaris/csci_6221_GO'},
-    {tag:'ML · PYTORCH · NLP', title:'NER Transformer', desc:'4-6M parameter encoder-only transformer built from scratch in PyTorch — attention, positional encoding, and a BIO classification head for cross-domain entity extraction. Built to understand why it works, not just call an API.', tags:['PyTorch','BERT Tokenizer','BIO Tagging'], link:'https://github.com/jayparmar16/MLProj'},
-    {tag:'NLP · SENTIMENT ANALYSIS', title:'Opinion Mining', desc:'Twitter sentiment analysis system — data collection, preprocessing, and classification to surface public opinion trends across topics.', tags:['NLP','Python'], link:'https://github.com/HetalLad/Opinion-Mining'},
+    {tag:'DEVOPS · AI', title:'DevOps Copilot', desc:"Full-stack AI tool that ingests system logs and returns structured root-cause analysis via real-time streaming. Hit a critical async session bug mid-build: SQLAlchemy sessions can't stay open across a 10-30s stream. Traced it and restructured the architecture around it.", tags:['FastAPI','Next.js','TypeScript','llama.cpp','SSE','JWT'], link:'https://github.com/HetalLad/devops-copilot'},
+    {tag:'RAG SYSTEM · HEALTHCARE · AI', title:'Cardiology RAG Assistant', desc:'RAG pipeline over 529 pages of AHA clinical guidelines: chunked, embedded, indexed in Pinecone, served via GPT-3.5 with citations. Stress-tested until three production failure modes surfaced, then fixed all three.', tags:['Python','LangChain','Pinecone','GPT-3.5'], link:'https://github.com/HetalLad/cardio-rag'},
+    {tag:'DISTRIBUTED SYSTEMS · GO · LLM', title:'GoLlama', desc:'Distributed backend orchestrating concurrent LLM inference across nodes with goroutine worker pools and channel-driven concurrency. 50% throughput improvement over single-node baseline.', tags:['Go','Goroutines','REST API','CLI'], link:'https://github.com/AntonisKotsikaris/csci_6221_GO'},
+    {tag:'ML · PYTORCH · NLP', title:'NER Transformer', desc:'4-6M parameter encoder-only transformer built from scratch in PyTorch: attention, positional encoding, and a BIO classification head for cross-domain entity extraction. Built to understand why it works, not just call an API.', tags:['PyTorch','BERT Tokenizer','BIO Tagging'], link:'https://github.com/jayparmar16/MLProj'},
+    {tag:'NLP · SENTIMENT ANALYSIS', title:'Opinion Mining', desc:'Twitter sentiment analysis system: data collection, preprocessing, and classification to surface public opinion trends across topics.', tags:['NLP','Python'], link:'https://github.com/HetalLad/Opinion-Mining'},
     {tag:'SECURITY · JAVA', title:'Image Steganography', desc:'Java tool for concealing data within image files, with encode/decode utilities for securely embedding and retrieving hidden messages.', tags:['Java'], link:'https://github.com/HetalLad/Image-Steganography'},
     {tag:'BLOCKCHAIN · AGTECH', title:'Agrarian.ai', desc:'Platform leveraging blockchain technology to streamline agricultural supply chain management with secure, transparent transactions and smart contracts. Implemented smart contracts for automating agreements, optimized minimum support pricing through blockchain, and enhanced traceability across the supply chain.', tags:['Python','Java','Ethereum','Blockchain'], link:'https://github.com/amithraveendra/Agraian.AI'},
     {tag:'DEV TOOLS · JAVA · OPEN SOURCE', title:'Reverse Java Document Generator', desc:'Eclipse plugin that parses Java codebases via AST analysis and generates interactive PlantUML class diagrams with drag-and-drop SVG rendering. Chose SVG + vanilla JS over heavier frameworks for Java 11 compatibility.', tags:['Eclipse JDT','AST','PlantUML','SVG'], link:'https://github.com/HetalLad/REJD'}
@@ -56,10 +56,19 @@
   }
 
   els.dotsRow.innerHTML = projects.map((_, i) => `<button class="proj-dot" data-i="${i}"></button>`).join('');
-  els.dotsRow.querySelectorAll('.proj-dot').forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
-  document.getElementById('prevBtn').addEventListener('click', () => goTo(active - 1));
-  document.getElementById('nextBtn').addEventListener('click', () => goTo(active + 1));
+  els.dotsRow.querySelectorAll('.proj-dot').forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.i); resetCarousel(); }));
   renderProjects();
+
+  let carouselTimer;
+  function startCarousel(){
+    if (reduceMotion) return;
+    carouselTimer = setInterval(() => goTo(active + 1), 5000);
+  }
+  function resetCarousel(){
+    clearInterval(carouselTimer);
+    startCarousel();
+  }
+  startCarousel();
 
   /* ============ FAQ accordion ============ */
   document.querySelectorAll('.faq-item').forEach(item => {
@@ -68,7 +77,7 @@
     btn.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
       document.querySelectorAll('.faq-item.open').forEach(o => { o.classList.remove('open'); o.querySelector('.faq-marker').textContent = '+'; });
-      if (!isOpen){ item.classList.add('open'); marker.textContent = '—'; }
+      if (!isOpen){ item.classList.add('open'); marker.textContent = '×'; }
     });
   });
 
@@ -157,7 +166,7 @@
   /* ============ console easter egg ============ */
   try {
     console.log('%c 200 OK %c inspecting the source? respect.', 'background:#b8bb26;color:#282828;font-weight:700;border-radius:0', 'color:#888');
-    console.log('%c 418 %c I\'m a teapot — but I make a mean coffee.', 'background:#fe8019;color:#282828;font-weight:700;border-radius:0', 'color:#888');
-    console.log('%c git praise %c not git blame — say hi → linkedin.com/in/hetallad', 'background:#fabd2f;color:#282828;font-weight:700;border-radius:0', 'color:#888');
+    console.log('%c 418 %c I\'m a teapot, but I make a mean coffee.', 'background:#fe8019;color:#282828;font-weight:700;border-radius:0', 'color:#888');
+    console.log('%c git praise %c not git blame · say hi → linkedin.com/in/hetallad', 'background:#fabd2f;color:#282828;font-weight:700;border-radius:0', 'color:#888');
   } catch (e) {}
 })();

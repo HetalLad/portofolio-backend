@@ -144,9 +144,7 @@ h1.headline{font-weight:800;font-size:clamp(42px,5.6vw,76px);line-height:1.05;le
 .tag-chip{font-size:11px;background:rgba(69,133,136,.16);color:var(--aqua-light);padding:5px 11px}
 .center-link{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13px;font-weight:700;color:var(--aqua);text-decoration:underline;text-underline-offset:4px}
 
-.carousel-nav{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:36px}
-.nav-arrow{width:40px;height:40px;cursor:pointer;background:var(--bg-soft);border:1px solid var(--border);font-size:16px;color:var(--text);display:flex;align-items:center;justify-content:center;transition:border-color .15s}
-.nav-arrow:hover{border-color:var(--yellow)}
+.carousel-nav{display:flex;align-items:center;justify-content:center;margin-top:36px}
 .dots-row{display:flex;gap:8px;align-items:center}
 .proj-dot{height:8px;border-radius:2px;cursor:pointer;border:none;transition:all .2s;width:8px;background:#45403d}
 .proj-dot.active{width:22px;background:var(--yellow)}
@@ -211,6 +209,13 @@ h1.headline{font-weight:800;font-size:clamp(42px,5.6vw,76px);line-height:1.05;le
 .photo-caption{position:absolute;bottom:18px;left:20px;right:20px;color:var(--text)}
 .photo-caption .big{font-weight:800;font-size:20px}
 .photo-caption .small{font-size:12px;opacity:.85;margin-top:2px}
+
+#sunsetCard [data-idx="0"]{background-image:url('images/sunset-1.png');background-position:center 85%}
+#sunsetCard [data-idx="1"]{background-image:url('images/sunset-2.png')}
+#sunsetCard [data-idx="2"]{background-image:url('images/sunset-3.png');background-position:center 85%}
+#trailCard [data-idx="0"]{background-image:url('images/trail-1.png')}
+#trailCard [data-idx="1"]{background-image:url('images/trail-2.jpg')}
+#trailCard [data-idx="2"]{background-image:url('images/trail-3.png')}
 
 /* ---- contact ---- */
 #contact{padding:90px 0 50px;text-align:center}
