@@ -70,6 +70,60 @@
   }
   startCarousel();
 
+  let wheelLock = false;
+
+  function manualGo(delta){
+    goTo(active + delta);
+    resetCarousel();
+  }
+
+  els.grid.addEventListener('wheel', (e) => {
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) < 12) return;
+    e.preventDefault();
+    if (wheelLock) return;
+    wheelLock = true;
+    setTimeout(() => { wheelLock = false; }, 350);
+    manualGo(delta > 0 ? 1 : -1);
+  }, { passive: false });
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  els.grid.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  els.grid.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) < 40 || Math.abs(dx) < Math.abs(dy)) return;
+    manualGo(dx < 0 ? 1 : -1);
+  }, { passive: true });
+
+  let dragStartX = 0;
+  let dragging = false;
+  els.grid.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+    dragging = true;
+    dragStartX = e.clientX;
+    els.grid.setPointerCapture(e.pointerId);
+    els.grid.classList.add('is-dragging');
+  });
+  els.grid.addEventListener('pointerup', (e) => {
+    if (!dragging) return;
+    dragging = false;
+    els.grid.classList.remove('is-dragging');
+    const dx = e.clientX - dragStartX;
+    if (Math.abs(dx) >= 50) manualGo(dx < 0 ? 1 : -1);
+  });
+  els.grid.addEventListener('pointercancel', () => {
+    dragging = false;
+    els.grid.classList.remove('is-dragging');
+  });
+
+  els.leftCard.addEventListener('click', () => manualGo(-1));
+  els.rightCard.addEventListener('click', () => manualGo(1));
+
   /* ============ FAQ accordion ============ */
   document.querySelectorAll('.faq-item').forEach(item => {
     const btn = item.querySelector('.faq-q');
