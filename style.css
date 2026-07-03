@@ -214,12 +214,12 @@ h1.headline{font-weight:800;font-size:clamp(42px,5.6vw,76px);line-height:1.05;le
 .photo-caption .big{font-weight:800;font-size:20px}
 .photo-caption .small{font-size:12px;opacity:.85;margin-top:2px}
 
-#sunsetCard [data-idx="0"]{background-image:url('images/sunset-1.png');background-position:center 85%}
-#sunsetCard [data-idx="1"]{background-image:url('images/sunset-2.png')}
-#sunsetCard [data-idx="2"]{background-image:url('images/sunset-3.png');background-position:center 85%}
-#trailCard [data-idx="0"]{background-image:url('images/trail-1.png')}
+#sunsetCard [data-idx="0"]{background-image:url('images/sunset-1.jpg');background-position:center 85%}
+#sunsetCard [data-idx="1"]{background-image:url('images/sunset-2.jpg')}
+#sunsetCard [data-idx="2"]{background-image:url('images/sunset-3.jpg');background-position:center 85%}
+#trailCard [data-idx="0"]{background-image:url('images/trail-1.jpg')}
 #trailCard [data-idx="1"]{background-image:url('images/trail-2.jpg')}
-#trailCard [data-idx="2"]{background-image:url('images/trail-3.png')}
+#trailCard [data-idx="2"]{background-image:url('images/trail-3.jpg')}
 
 /* ---- contact ---- */
 #contact{padding:90px 0 50px;text-align:center}
