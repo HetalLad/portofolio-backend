@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hetal Lad — Software Engineer</title>
+<meta name="description" content="Hetal Lad — Software Engineer building AI-powered applications, backend systems, and cloud infrastructure. MS CS student at GWU, Founding Engineer Intern at HypeOn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div style="position:relative;--accent:#fabd2f;--accent-deep:#d79921;min-height:100vh;background:#282828">
+
+  <!-- ============ EDITOR CHROME ============ -->
+  <header class="chrome">
+    <div class="title-row">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title-center">
+        <span class="title-badge">&lt;/&gt;</span>
+        <span class="title-name">hetal-lad</span><span class="title-sub">— portfolio</span>
+      </div>
+      <a href="resume.pdf" download class="resume-btn">resume.pdf <span>↓</span></a>
+    </div>
+    <nav class="tab-strip" id="tabStrip">
+      <button class="tab-btn" data-target="home"><span class="tab-dot" style="background:#fabd2f"></span>home.tsx</button>
+      <button class="tab-btn" data-target="projects"><span class="tab-dot" style="background:#458588"></span>projects.tsx</button>
+      <button class="tab-btn" data-target="experience"><span class="tab-dot" style="background:#fe8019"></span>experience.log</button>
+      <button class="tab-btn" data-target="life"><span class="tab-dot" style="background:#b8bb26"></span>life.md</button>
+      <button class="tab-btn" data-target="contact"><span class="tab-dot" style="background:#83a598"></span>contact.json</button>
+      <div class="tab-spacer"></div>
+      <div class="branch-label">main ⎇</div>
+    </nav>
+    <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+  </header>
+
+  <!-- ============ ACTIVITY BAR ============ -->
+  <aside class="activity-bar" id="activityBar">
+    <button class="nav-icon" data-target="home" title="Explorer">⧉</button>
+    <button class="nav-icon" data-target="projects" title="Search projects">⌕</button>
+    <button class="nav-icon" data-target="experience" title="Timeline">⎇</button>
+    <button class="nav-icon" data-target="life" title="Notes">❏</button>
+    <div class="activity-spacer"></div>
+    <button class="hl-btn" data-target="contact" title="Hetal Lad">HL</button>
+  </aside>
+
+  <!-- ============ CONTENT ============ -->
+  <main class="content-wrap">
+    <div class="container">
+
+      <!-- ===== HERO ===== -->
+      <section id="home">
+        <div class="role-badge" data-reveal>
+          <span class="kw">const</span><span>role</span><span class="eq">=</span><span class="val">'Software Engineer'</span>
+        </div>
+        <h1 class="headline" data-reveal data-delay="80">Building intelligent systems that solve real-world problems.</h1>
+        <p class="hero-sub" data-reveal data-delay="160">I build AI-powered applications, backend systems, and cloud infrastructure — production-grade, reliable, and genuinely useful. Currently a Founding Engineer Intern at HypeOn and MS CS student at GWU.</p>
+
+        <div class="status-wrap" data-reveal data-delay="200">
+          <div class="status-card">
+            <div class="status-top">
+              <span class="status-dot"></span>
+              <span class="status-label">AVAILABLE</span>
+            </div>
+            <div class="status-body">Open for Summer/Fall 2026 internships — starting June 2026. F-1 CPT authorized, no sponsorship required.</div>
+          </div>
+        </div>
+
+        <div class="cta-row" data-reveal data-delay="260">
+          <button class="btn-primary" data-target="projects">Explore my work <span>→</span></button>
+          <button class="btn-secondary" data-target="contact">Let's connect <span>↗</span></button>
+        </div>
+        <div class="social-row" data-reveal data-delay="320">
+          <a href="https://github.com/HetalLad" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/hetallad/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:ladhetal25@gmail.com">Email</a>
+        </div>
+
+        <div class="faq-wrap" data-reveal data-delay="360">
+          <div class="faq-eyebrow"># quick_answers</div>
+          <div class="faq-list" id="faqList">
+            <div class="faq-item">
+              <button class="faq-q"><span>Are you open to relocation?</span><span class="faq-marker">+</span></button>
+              <div class="faq-a">Yes — based in Arlington, VA / DC area, open to relocating for the right role, and comfortable remote or hybrid.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q"><span>What's your availability?</span><span class="faq-marker">+</span></button>
+              <div class="faq-a">Available for Summer/Fall 2026 internships starting June 2026. Currently an MSCS student at GWU, graduating May 2027.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q"><span>Do you need visa sponsorship?</span><span class="faq-marker">+</span></button>
+              <div class="faq-a">No — F-1 CPT authorized, so no employer visa sponsorship is required for internships.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q"><span>What's your tech stack?</span><span class="faq-marker">+</span></button>
+              <div class="faq-a">Python, TypeScript, Go, C#, Java · LangChain/LangGraph, PyTorch, RAG pipelines · FastAPI, PostgreSQL, Redis · AWS, Docker, GCS.</div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-q"><span>Can I see your resume?</span><span class="faq-marker">+</span></button>
+              <div class="faq-a">Yes — click resume.pdf in the top bar to download it directly.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROJECTS ===== -->
+      <section id="projects">
+        <div class="section-head" data-reveal>
+          <div class="section-eyebrow"><span class="pill pill-green">200 OK</span><span class="idx-tag">// 01</span> — featured</div>
+          <h2>Things I've built</h2>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <div class="side-card" id="leftCard">
+            <div class="side-tag" id="leftTag"></div>
+            <div class="side-title" id="leftTitle"></div>
+            <p class="side-desc" id="leftDesc"></p>
+            <a class="side-link" id="leftLink" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+          <div class="center-card" id="centerCard">
+            <div class="center-tag" id="centerTag"></div>
+            <div class="center-title" id="centerTitle"></div>
+            <p class="center-desc" id="centerDesc"></p>
+            <div class="center-tags" id="centerTags"></div>
+            <a class="center-link" id="centerLink" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+          <div class="side-card" id="rightCard">
+            <div class="side-tag" id="rightTag"></div>
+            <div class="side-title" id="rightTitle"></div>
+            <p class="side-desc" id="rightDesc"></p>
+            <a class="side-link" id="rightLink" target="_blank" rel="noopener">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="carousel-nav">
+          <button class="nav-arrow" id="prevBtn">‹</button>
+          <div class="dots-row" id="dotsRow"></div>
+          <button class="nav-arrow" id="nextBtn">›</button>
+        </div>
+      </section>
+
+      <!-- ===== EXPERIENCE ===== -->
+      <section id="experience">
+        <div data-reveal>
+          <div class="section-eyebrow"><span class="pill pill-aqua">201 created</span><span class="idx-tag">// 02</span> — experience.log</div>
+          <h2 class="section-title" style="margin-bottom:44px">Where I've worked &amp; learned</h2>
+        </div>
+
+        <div class="term-window" data-reveal>
+          <div class="term-titlebar">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <span class="term-path">hetal@portfolio — ~/experience.log</span>
+            <div class="tab-spacer"></div>
+            <span class="term-shell">zsh</span>
+          </div>
+          <div class="term-body">
+            <div class="term-cmd"><span class="u">hetal@portfolio</span><span class="p">:~$</span> <span class="c">git log --author=hetal --graph --pretty</span></div>
+
+            <div class="log-row">
+              <div class="log-rail"><div class="log-node" style="background:#fabd2f"></div><div class="log-line"></div></div>
+              <div class="log-body">
+                <div class="log-commit"><span class="log-hash">commit 3f9a2c1</span> <span class="log-tag" style="background:rgba(184,187,38,.16);color:#b8bb26">HEAD → main</span></div>
+                <div class="log-role">Founding Engineer Intern</div>
+                <div class="log-org">@ HypeOn · <span class="dim">June 2026 – present</span></div>
+                <div class="log-note"># traced a live demo failure through the AI generation pipeline to its architectural root cause</div>
+                <div class="log-note"># built production YouTube ad-scraper hitting Google's undocumented RPC endpoints (proxy rotation, CAPTCHA handling, auto-retry)</div>
+                <div class="log-note"># shipped Redis distributed locking + GCS media re-hosting for cross-pod sync</div>
+                <div class="log-note"># designed the Expert Library feature architecture, reconciled against a teammate's 30-commit build via git history analysis</div>
+              </div>
+            </div>
+
+            <div class="log-row">
+              <div class="log-rail"><div class="log-node" style="background:#458588"></div><div class="log-line"></div></div>
+              <div class="log-body">
+                <div class="log-commit"><span class="log-hash">commit 8c1d4e0</span> <span class="log-tag" style="background:rgba(69,133,136,.18);color:#83a598">tag: siemens</span></div>
+                <div class="log-role">Associate Software Developer</div>
+                <div class="log-org">@ Siemens Healthineers · Syngo.via · <span class="dim">Aug 2024 – Aug 2025</span></div>
+                <div class="log-note"># resolved 50+ production incidents across distributed medical software services</div>
+                <div class="log-note"># automated release pipelines in PowerShell — 18% less downtime</div>
+                <div class="log-note"># raised C# regression coverage to 90% across four Agile teams</div>
+              </div>
+            </div>
+
+            <div class="log-row">
+              <div class="log-rail"><div class="log-node" style="background:#fe8019"></div><div class="log-line"></div></div>
+              <div class="log-body">
+                <div class="log-commit"><span class="log-hash">commit 5b71caa</span> <span class="log-tag" style="background:rgba(254,128,25,.16);color:#fe8019">tag: siemens-intern</span></div>
+                <div class="log-role">Software Developer Intern</div>
+                <div class="log-org">@ Siemens Healthineers · <span class="dim">Jan 2024 – Aug 2024</span></div>
+                <div class="log-note"># automated backend config &amp; client env setup in PowerShell — 30% faster onboarding</div>
+                <div class="log-note"># extended C# test suites across cross-functional Agile teams</div>
+              </div>
+            </div>
+
+            <div class="log-row" style="opacity:.85">
+              <div class="log-rail"><div class="log-node" style="background:#b8bb26"></div></div>
+              <div class="log-body" style="padding-bottom:0">
+                <div class="log-commit"><span class="log-hash">commit 1e6f0a2</span> <span class="log-tag" style="background:rgba(168,153,132,.16);color:#a89984">tag: kosha-ai</span></div>
+                <div class="log-role">Software Developer Intern</div>
+                <div class="log-org">@ Kosha.AI · Bengaluru · <span class="dim">Sep – Oct 2023</span></div>
+                <div class="log-note"># customized ERPNext modules in Python — 25% lower API latency via query optimization</div>
+              </div>
+            </div>
+
+            <div class="edu-block">
+              <div class="edu-col">
+                <div class="edu-branch">branch: education/gwu</div>
+                <div class="edu-degree">M.S. Computer Science</div>
+                <div class="edu-meta">George Washington University · Aug 2025 – May 2027 · Washington, DC</div>
+                <div class="edu-note"># focus: ML systems · distributed computing · applied AI</div>
+              </div>
+              <div class="edu-col">
+                <div class="edu-branch">branch: education/bms</div>
+                <div class="edu-degree">B.E. Computer Science</div>
+                <div class="edu-meta">BMS Institute of Technology · Dec 2020 – May 2024 · Bengaluru, India</div>
+              </div>
+            </div>
+
+            <div class="term-prompt"><span class="u">hetal@portfolio</span><span class="p">:~$</span> <span class="cursor">&nbsp;</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== LIFE ===== -->
+      <section id="life">
+        <div data-reveal>
+          <div class="section-eyebrow"><span class="pill pill-green">203 non-authoritative</span><span class="idx-tag">// 03</span> — life.md</div>
+          <h2 class="section-title">When I'm not shipping code</h2>
+          <p style="font-size:15px;line-height:1.75;color:#a89984;max-width:560px;margin:14px 0 0">The best engineers stay curious about everything. Here's what fills the rest of my hours — and yes, I'll happily talk recipes or golden hour.</p>
+        </div>
+
+        <div class="life-grid">
+          <div class="life-card" data-reveal>
+            <div class="life-eyebrow-green"># currently_obsessed_with</div>
+            <div class="life-title">Making food</div>
+            <p class="life-desc">Lately I spend most of my free time in the kitchen — chasing recipes, feeding friends, and treating dinner like a side project worth iterating on. Every dish is a build-test-iterate cycle, just with better outcomes than most deploys.</p>
+          </div>
+
+          <div class="photo-card" data-reveal data-delay="80" id="sunsetCard">
+            <div class="photo-layer active photo-placeholder" data-idx="0"></div>
+            <div class="photo-layer photo-placeholder" data-idx="1"></div>
+            <div class="photo-layer photo-placeholder" data-idx="2"></div>
+            <div class="photo-gradient"></div>
+            <div class="photo-filename">sunset_2026.RAW</div>
+            <div class="photo-dots" id="sunsetDots"></div>
+            <div class="photo-caption"><div class="big">Certified sunset chaser</div><div class="small">RAW files only — compression loses the good stuff.</div></div>
+          </div>
+
+          <div class="photo-card" data-reveal id="trailCard">
+            <div class="photo-layer active photo-placeholder" data-idx="0"></div>
+            <div class="photo-layer photo-placeholder" data-idx="1"></div>
+            <div class="photo-layer photo-placeholder" data-idx="2"></div>
+            <div class="photo-gradient"></div>
+            <div class="photo-filename">trail_no_map.JPG</div>
+            <div class="photo-dots" id="trailDots"></div>
+            <div class="photo-caption"><div class="big">Long walks, no destination</div><div class="small">nature, on repeat</div></div>
+          </div>
+
+          <div class="life-card dark" data-reveal data-delay="80">
+            <div class="life-eyebrow-aqua"># shot_on_my_own_time</div>
+            <div class="life-title">Photography</div>
+            <p class="life-desc">I carry a camera most places — golden hour, quiet trails, the odd plate of food. There's something about finding the frame that feels a lot like debugging — you're looking for what doesn't belong. Swap these tiles for my favorites soon.</p>
+            <div class="chip-row"><span class="chip">f/1.8</span><span class="chip">golden hour</span><span class="chip">RAW</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section id="contact">
+        <div data-reveal>
+          <div class="section-eyebrow"><span class="pill pill-green">202 accepted</span><span class="idx-tag">// 04</span> — contact.json</div>
+          <h2 class="contact-title">Let's build something good.</h2>
+          <p class="contact-sub">Open to roles, collaborations, or just trading sunset photos. I usually reply fast.</p>
+          <div class="contact-row">
+            <a href="mailto:ladhetal25@gmail.com" class="contact-primary">Say hello</a>
+            <a href="https://www.linkedin.com/in/hetallad/" target="_blank" rel="noopener" class="contact-secondary">LinkedIn ↗</a>
+            <a href="https://github.com/HetalLad" target="_blank" rel="noopener" class="contact-secondary">GitHub ↗</a>
+          </div>
+        </div>
+        <div class="footer-row">
+          <span>© 2026 Hetal Lad — built with curiosity</span>
+          <span>Error 404: work-life balance not found — see life.md ↑</span>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ============ STATUS BAR ============ -->
+  <footer class="status-bar">
+    <span style="display:flex;align-items:center;gap:5px">⎇ main</span>
+    <span style="opacity:.8">✓ ready</span>
+    <span style="opacity:.9" id="statusSection">→ home.tsx</span>
+    <div class="status-spacer"></div>
+    <span class="status-extra">Spaces: 2</span>
+    <span class="status-extra">UTF-8</span>
+    <span class="status-extra">TSX</span>
+    <span class="status-pill">● 200 · open to work</span>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
